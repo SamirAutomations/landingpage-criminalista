@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advogado Rural | Assessoria Jurídica para o Agronegócio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- Reset & Variáveis de Cor --- */
+        :root {
+            --dark-bg: #2C2A2A;
+            /* Marrom escuro/carvão do fundo */
+            --light-bg: #F2F0E9;
+            /* Bege claro do fundo */
+            --primary-green: #00B050;
+            /* Verde vibrante para CTAs */
+            --whatsapp-green: #25D366;
+            --gold-accent: #C4A47E;
+            /* Dourado/bege para detalhes */
+            --text-dark: #333333;
+            --text-light: #F2F0E9;
+            --text-body: #4F4F4F;
+            --font-heading: 'Lora', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --container-width: 1120px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--light-bg);
+            color: var(--text-body);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .dark-section {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        .dark-section h2,
+        .dark-section h3 {
+            color: var(--text-light);
+        }
+
+        /* --- Seção Hero --- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 80vh;
+            /* Altura reduzida */
+            color: #fff;
+            /* Imagem de fundo local */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/field-photo-440731.webp');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* --- Seção de Problemas --- */
+        #problems {
+            background-color: var(--light-bg);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: #fff;
+            padding: 2rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .problem-card .icon {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        /* --- Seção de Soluções --- */
+        #solutions.dark-section .container h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-green);
+            margin: 1rem auto 0;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background-color: #383636;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .solution-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .solution-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .solution-card ul li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .solution-card ul li::before {
+            content: '\f058';
+            /* Font Awesome check-circle icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary-green);
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- Seção Sobre --- */
+        #about {
+            background-color: var(--light-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .specialist-photo {
+            width: 100%;
+            max-width: 350px;
+            /* height: 400px; REMOVED to allow natural aspect ratio */
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h2 {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        /* --- Seção de Depoimentos --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: #383636;
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            color: var(--primary-green);
+        }
+
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        /* --- Seção de Contato --- */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-whatsapp {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            background-color: var(--whatsapp-green);
+            text-transform: none;
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1DAE5A;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-whatsapp i {
+            margin-right: 0.8rem;
+            font-size: 1.3rem;
+            vertical-align: middle;
+        }
+
+        /* --- Rodapé --- */
+        .footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Animações --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 75vh;
+                /* Altura reduzida para mobile */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <!-- Seção Hero -->
+        <section class="hero" id="hero">
+            <div class="hero-content fade-in">
+                <h1>Direito Rural e do Agronegócio</h1>
+                <p>Protegemos seu patrimônio e garantimos a segurança jurídica da sua terra.</p>
+                <a href="#contact" class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Falar com Especialista
+                </a>
+            </div>
+            <a href="#about" class="scroll-down">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- Seção Sobre (Movida para a segunda posição) -->
+        <section id="about">
+            <div class="container fade-in">
+                <div class="about-content">
+                    <div>
+                        <!-- Imagem local da especialista -->
+                        <img src="images/FotoLeticia.webp" alt="Foto da especialista Leticia Silva"
+                            class="specialist-photo">
+                    </div>
+                    <div class="about-text">
+                        <h2>Meu nome é Leticia Silva</h2>
+                        <p><strong>Especialista em Direito do Agronegócio</strong></p>
+                        <p>Neta e filha de produtores rurais, vivenciei desde cedo a realidade e os desafios do campo.
+                            Essa experiência pessoal, aliada a uma sólida formação em Direito, me permite oferecer uma
+                            assessoria jurídica que vai além da teoria.</p>
+                        <p>Compreendo a sua linguagem, suas urgências e a importância da sua atividade para a economia e
+                            para sua família. Minha missão é traduzir a complexidade da lei em soluções práticas e
+                            seguras, permitindo que você, produtor rural, foque no que faz de melhor: produzir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Soluções -->
+        <section id="solutions" class="dark-section">
+            <div class="container fade-in">
+                <h2>Nossas Soluções em Direito Rural e do Agronegócio</h2>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <h3>Direito Agrário e Contratos</h3>
+                        <ul>
+                            <li>Elaboração de Contratos de Arrendamento e Parceria.</li>
+                            <li>Compra e Venda de Imóveis Rurais.</li>
+                            <li>Assessoria em Cédulas de Produto Rural (CPR).</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Regularização Fundiária</h3>
+                        <ul>
+                            <li>Ações de Usucapião Rural.</li>
+                            <li>Georreferenciamento, CAR e regularização.</li>
+                            <li>Desmembramento e unificação de imóveis.</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Ambiental e Regulatório</h3>
+                        <ul>
+                            <li>Defesas em processos de multas e embargos.</li>
+                            <li>Assessoria para obtenção de licenças.</li>
+                            <li>Consultoria sobre Reserva Legal e APP.</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Tributário para o Agronegócio</h3>
+                        <ul>
+                            <li>Planejamento tributário para o produtor rural.</li>
+                            <li>Defesa em execuções fiscais.</li>
+                            <li>Recuperação de tributos pagos indevidamente.</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Planejamento Sucessório</h3>
+                        <ul>
+                            <li>Organização do patrimônio familiar.</li>
+                            <li>Constituição de Holdings Rurais.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Problemas (Movida para esta posição) -->
+        <section id="problems">
+            <div class="container fade-in">
+                <h2>Seus Direitos no Campo, Nossa Prioridade.</h2>
+                <p style="text-align:center; max-width: 800px; margin: -1rem auto 0;">Entendemos os desafios que você
+                    enfrenta. Nossa atuação é focada em resolver problemas complexos como:</p>
+                <div class="problems-grid">
+                    <div class="problem-card">
+                        <div class="icon"><i class="fa-solid fa-file-signature"></i></div>
+                        <h3>Regularização de Terras</h3>
+                        <p>Dificuldades com registros, matrículas, georreferenciamento e usucapião rural? Deixe a
+                            burocracia conosco.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+                        <h3>Contratos do Agronegócio</h3>
+                        <p>Insegurança ao firmar contratos de arrendamento, parceria, compra e venda de safra ou
+                            insumos? Elaboramos e revisamos documentos para sua total segurança.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                        <h3>Recuperação de Crédito</h3>
+                        <p>Sofrendo com inadimplência de compradores ou parceiros? Atuamos na cobrança e recuperação de
+                            ativos para garantir seu retorno financeiro.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Questões Ambientais</h3>
+                        <p>Autuações, embargos ou multas por órgãos ambientais? Defendemos seus interesses e buscamos a
+                            regularização para que você possa produzir com tranquilidade.</p>
+                    </div>
+                    <div class="problem-card">
+                        <div class="icon"><i class="fa-solid fa-road-barrier"></i></div>
+                        <h3>Conflitos de Posse e Divisas</h3>
+                        <p>Disputas com vizinhos sobre os limites da sua propriedade? Medíamos conflitos e defendemos
+                            sua posse de forma firme e estratégica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Depoimentos -->
+        <section id="testimonials" class="dark-section">
+            <div class="container fade-in">
+                <h2>A Confiança de Quem Vive do Campo</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"A Dra. Leticia resolveu um problema de divisa que se arrastava por anos. Foi rápida,
+                            eficiente e muito transparente. Hoje tenho a paz que precisava para trabalhar."</p>
+                        <p class="author">- João C., Produtor Rural</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Tínhamos uma autuação ambiental que poderia paralisar nossa produção. A assessoria dela foi
+                            fundamental para reverter a situação e nos regularizar. Recomendo a todos."</p>
+                        <p class="author">- Família Martins, Agropecuária</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Excelente profissional. Nos ajudou a criar uma holding familiar rural, garantindo o futuro
+                            do nosso patrimônio para as próximas gerações. Um investimento que valeu cada centavo."</p>
+                        <p class="author">- Lúcia R., Cafeicultora</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contact">
+            <div class="container fade-in">
+                <div class="contact-content">
+                    <h2>Dê o Próximo Passo para a Segurança Jurídica da Sua Propriedade.</h2>
+                    <p>Não deixe que problemas jurídicos comprometam seu patrimônio e sua produtividade. Clique no botão
+                        abaixo para falar diretamente com um especialista via WhatsApp e agendar sua consulta inicial.
+                    </p>
+                    <a href="https://wa.me/55SEUNUMEROSEUNUMERO" target="_blank" class="btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        Falar com Especialista via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024. Leticia Silva. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Fade-in animation on scroll ---
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+    </script>
+</body>
+
+</html>
