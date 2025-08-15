@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/agro/*"
+  to = "/agro/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/agro"
+  to = "/agro/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
